@@ -16,7 +16,12 @@ test('Multiple windows',async({page,context})=>{
 
     const allpages:Page[]= context.pages();
     await allpages[0].bringToFront();
-    console.log (allpages.length);
+
+    console.log(new Date().toLocaleString());
+
+    //console.log (allpages.length);
+
+    
 
 
 })

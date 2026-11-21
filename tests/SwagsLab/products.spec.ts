@@ -1,41 +1,40 @@
-import{test,expect} from "@playwright/test"
-import loginData from "../../testData/loginData.json"; //!(../../) is used beacause the spec.ts.file is in test/swags Lab not directely in tests
+import{test,expect} from "../../fixtures/loginPage.ts";
+//import loginData from "../../testData/loginData.json"; //!(../../) is used beacause the spec.ts.file is in test/swags Lab not directely in tests
 
-test('@smoke verify user able to lgin with valid credentials',async ({page})=>{
-    await page.goto('https://www.saucedemo.com/');
-    await page.getByPlaceholder('Username').fill(loginData.validUser.username);
-    await page.getByPlaceholder('Password').fill(loginData.validUser.password);
-    await page.getByRole('button', { name: 'Login' }).click();
+
+//? We Are using loginPage custom fixture here to 
+test('@smoke verify user able to lgin with valid credentials',async ({page,loginPage})=>{
+    // await page.goto('https://www.saucedemo.com/');
+    // await page.getByPlaceholder('Username').fill(loginData.validUser.username);
+    // await page.getByPlaceholder('Password').fill(loginData.validUser.password);
+    // await page.getByRole('button', { name: 'Login' }).click();  //!skipped login step due to use of loginPage fixtures
     await expect(page.getByText('Products')).toBeVisible();
    
      
 })
-test('@sanity verify user should not able to login with invalid credentials',async ({page})=>{
-    await page.goto('https://www.saucedemo.com/');
-    await page.getByPlaceholder('Username').fill(loginData.inValidUser.username);
-    await page.getByPlaceholder('Password').fill(loginData.inValidUser.password);
-    await page.getByRole('button', { name: 'Login' }).click();
+test('@sanity verify user should not able to login with invalid credentials',async ({page,loginPage})=>{
+    
     await expect(page.getByText('Products')).toBeVisible();
    
      
 })
 
-test('@smoke verify Products page',async ({page})=>{
-    await page.goto('https://www.saucedemo.com/');
-    await page.getByPlaceholder('Username').fill(loginData.validUser.username);
-    await page.getByPlaceholder('Password').fill(loginData.validUser.password);
-    await page.getByRole('button', { name: 'Login' }).click();
+test('@smoke verify Products page',async ({page,loginPage})=>{
+    // await page.goto('https://www.saucedemo.com/');
+    // await page.getByPlaceholder('Username').fill(loginData.validUser.username);
+    // await page.getByPlaceholder('Password').fill(loginData.validUser.password);
+    // await page.getByRole('button', { name: 'Login' }).click();  //!skipped login step due to use of loginPage fixtures
     await expect(page.getByText('Products')).toBeVisible();
     
     await expect(page).toHaveTitle('Swag Labs');
 
 })
 
-test('@regression verify count of Products',async ({page})=>{
-    await page.goto('https://www.saucedemo.com/');
-    await page.getByPlaceholder('Username').fill(loginData.validUser.username);
-    await page.getByPlaceholder('Password').fill(loginData.validUser.password);
-    await page.getByRole('button', { name: 'Login' }).click();
+test('@regression verify count of Products',async ({page,loginPage})=>{
+    // await page.goto('https://www.saucedemo.com/');
+    // await page.getByPlaceholder('Username').fill(loginData.validUser.username);
+    // await page.getByPlaceholder('Password').fill(loginData.validUser.password);
+    // await page.getByRole('button', { name: 'Login' }).click();  //!skipped login step due to use of loginPage fixtures
     await expect(page.getByText('Products')).toBeVisible();
     await expect(page).toHaveTitle('Swag Labs');
 
@@ -46,11 +45,11 @@ test('@regression verify count of Products',async ({page})=>{
 
 })
 
-test('@sanity Print Name of Products',async ({page})=>{
-    await page.goto('https://www.saucedemo.com/');
-    await page.getByPlaceholder('Username').fill(loginData.validUser.username);
-    await page.getByPlaceholder('Password').fill(loginData.validUser.password);
-    await page.getByRole('button', { name: 'Login' }).click();
+test('@sanity Print Name of Products',async ({page,loginPage})=>{
+    // await page.goto('https://www.saucedemo.com/');
+    // await page.getByPlaceholder('Username').fill(loginData.validUser.username);
+    // await page.getByPlaceholder('Password').fill(loginData.validUser.password);
+    // await page.getByRole('button', { name: 'Login' }).click();  //!skipped login step due to use of loginPage fixtures
     await expect(page.getByText('Products')).toBeVisible();
     await expect(page).toHaveTitle('Swag Labs');
 
@@ -61,11 +60,11 @@ test('@sanity Print Name of Products',async ({page})=>{
 
 })
 
-test('@smoke add one Product to cart',async ({page})=>{
-    await page.goto('https://www.saucedemo.com/');
-    await page.getByPlaceholder('Username').fill(loginData.validUser.username);
-    await page.getByPlaceholder('Password').fill(loginData.validUser.password);
-    await page.getByRole('button', { name: 'Login' }).click();
+test('@smoke add one Product to cart',async ({page,loginPage})=>{
+    // await page.goto('https://www.saucedemo.com/');
+    // await page.getByPlaceholder('Username').fill(loginData.validUser.username);
+    // await page.getByPlaceholder('Password').fill(loginData.validUser.password);
+    // await page.getByRole('button', { name: 'Login' }).click();  //!skipped login step due to use of loginPage fixtures
     await expect(page.getByText('Products')).toBeVisible();
     await expect(page).toHaveTitle('Swag Labs');
 
@@ -80,11 +79,11 @@ test('@smoke add one Product to cart',async ({page})=>{
 
 })
 
-test('@regression add Multiple Products to cart',async ({page})=>{
-    await page.goto('https://www.saucedemo.com/');
-    await page.getByPlaceholder('Username').fill(loginData.validUser.username);
-    await page.getByPlaceholder('Password').fill(loginData.validUser.password);
-    await page.getByRole('button', { name: 'Login' }).click();
+test('@regression add Multiple Products to cart',async ({page,loginPage})=>{
+    // await page.goto('https://www.saucedemo.com/');
+    // await page.getByPlaceholder('Username').fill(loginData.validUser.username);
+    // await page.getByPlaceholder('Password').fill(loginData.validUser.password);
+    // await page.getByRole('button', { name: 'Login' }).click();  //!skipped login step due to use of loginPage fixtures
     await expect(page.getByText('Products')).toBeVisible();
     await expect(page).toHaveTitle('Swag Labs');
 
@@ -122,11 +121,11 @@ test('@regression add Multiple Products to cart',async ({page})=>{
 
 })
 
-test('@sanity Remove Multiple Products from cart',async ({page})=>{
-    await page.goto('https://www.saucedemo.com/');
-    await page.getByPlaceholder('Username').fill(loginData.validUser.username);
-    await page.getByPlaceholder('Password').fill(loginData.validUser.password);
-    await page.getByRole('button', { name: 'Login' }).click();
+test('@sanity Remove Multiple Products from cart',async ({page,loginPage})=>{
+    // await page.goto('https://www.saucedemo.com/');
+    // await page.getByPlaceholder('Username').fill(loginData.validUser.username);
+    // await page.getByPlaceholder('Password').fill(loginData.validUser.password);
+    // await page.getByRole('button', { name: 'Login' }).click();  //!skipped login step due to use of loginPage fixtures
     await expect(page.getByText('Products')).toBeVisible();
     await expect(page).toHaveTitle('Swag Labs');
 
@@ -180,11 +179,11 @@ test('@sanity Remove Multiple Products from cart',async ({page})=>{
 
 })
 
-test('@smoke Complete checkout of Products',async ({page})=>{
-    await page.goto('https://www.saucedemo.com/');
-    await page.getByPlaceholder('Username').fill(loginData.validUser.username);
-    await page.getByPlaceholder('Password').fill(loginData.validUser.password);
-    await page.getByRole('button', { name: 'Login' }).click();
+test('@smoke Complete checkout of Products',async ({page,loginPage})=>{
+    // await page.goto('https://www.saucedemo.com/');
+    // await page.getByPlaceholder('Username').fill(loginData.validUser.username);
+    // await page.getByPlaceholder('Password').fill(loginData.validUser.password);
+    // await page.getByRole('button', { name: 'Login' }).click();    //!skipped login step due to use of loginPage fixtures
     await expect(page.getByText('Products')).toBeVisible();
     await expect(page).toHaveTitle('Swag Labs');
 

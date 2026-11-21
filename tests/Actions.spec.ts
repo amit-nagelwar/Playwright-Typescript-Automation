@@ -27,4 +27,8 @@ test('DemoQA site form',async( { page } )=>
     {
         await page.goto("https://demoqa.com/automation-practice-form");
         await page.getByPlaceholder('First Name').fill("Amit");
+        const email:Locator=page.locator('#userEmail-label')
+
+        expect(email).toHaveText('Email');
+
     })    
