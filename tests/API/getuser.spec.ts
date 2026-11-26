@@ -26,7 +26,7 @@ test('Verify GET user API', async ({ request }) => {
 
 })
 
-test.only('queryy param',async({request})=>{
+test('queryy param',async({request})=>{
     const response=await request.get('https://jsonplaceholder.typicode.com/users',{
         params:{
             id:'5'

@@ -57,7 +57,7 @@ test('Static dropdowns',async( { page } )=>
 
     })    
 
-test.only('Google Search Engine',async({page})=>
+test('Google Search Engine',async({page})=>
     {
         await page.goto("https://www.google.com/?zx=1793160306106");
         await page.locator("#ti6dpd").fill("ps5");

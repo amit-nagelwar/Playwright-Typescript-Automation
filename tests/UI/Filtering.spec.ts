@@ -13,7 +13,7 @@ test('Practsing filter method',async({page})=>{
     await page.waitForTimeout(3000);
 })
 
-test.only('Practsing filter method with webtable',async({page})=>{
+test('Practsing filter method with webtable',async({page})=>{
     await page.goto('https://demoqa.com/webtables');
     console.log(await page.title());
     await expect(page.getByRole("heading",{name:'Web Tables'})).toBeVisible();

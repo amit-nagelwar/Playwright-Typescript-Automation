@@ -1,7 +1,7 @@
 import {test, expect, Locator} from "@playwright/test";
 import {faker} from "@faker-js/faker";
 
-test.only('Verify radio button',async( { page } )=>{
+test('Verify radio button',async( { page } )=>{
      
     await page.goto('https://demo.automationtesting.in/Register.html');
 
