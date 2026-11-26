@@ -72,6 +72,7 @@ test('Google Search Engine',async({page})=>
                 if(text=="ps5 price")
                     {
                         await option.nth(i).click();
+                        break;
                     }
             }
 

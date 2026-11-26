@@ -25,10 +25,5 @@ test('verfy amazon logo', async ({ page }) => {
 
 })
 
-test('frames test', async ({ page }) => {
-    await page.goto('https://demoqa.com/frames');
 
-    console.log(text);
-    
-})
 
