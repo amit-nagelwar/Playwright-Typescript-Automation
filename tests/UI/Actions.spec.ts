@@ -1,11 +1,12 @@
 import {test, expect, Locator} from "@playwright/test";
+import {faker} from "@faker-js/faker";
 
-test('Verify radio button',async( { page } )=>{
+test.only('Verify radio button',async( { page } )=>{
      
     await page.goto('https://demo.automationtesting.in/Register.html');
 
-    await page.getByPlaceholder('First Name').fill("Amit");
-    await page.getByPlaceholder('Last Name').fill("Nagelwar");
+    await page.getByPlaceholder('First Name').fill(faker.person.firstName());
+    await page.getByPlaceholder('Last Name').fill(faker.person.lastName());
 
     const radiobtn: Locator = page.getByLabel('Male', { exact: true });
 
@@ -17,7 +18,7 @@ test('Verify radio button',async( { page } )=>{
     await page.locator("#checkbox1").check();
     
 
-    await page.getByRole('textbox').nth(3).fill('amit@gmail.com');
+    await page.getByRole('textbox').nth(3).fill(faker.internet.email());
     await  page.waitForTimeout(2000);
     
     })
